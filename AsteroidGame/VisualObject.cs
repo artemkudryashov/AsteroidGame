@@ -32,7 +32,7 @@ namespace AsteroidGame
                 _Position.Y + _Direction.Y);
 
             if (_Position.X < 0)
-                _Direction = new Point(-_Direction.X,_Direction.Y)
+                _Direction = new Point(-_Direction.X, _Direction.Y);
             if (_Position.Y < 0)
                 _Direction = new Point(_Direction.X, -_Direction.Y);
             if (_Position.X > Game.Width)
