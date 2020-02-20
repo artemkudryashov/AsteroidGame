@@ -41,7 +41,7 @@ namespace TestConsole
             {
                 return ((Vector2D)obj).X == X && ((Vector2D)obj).Y == Y;
             }
-            return base.Equals(obj);
+            return false;
         }
 
         public override int GetHashCode()
