@@ -10,28 +10,25 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            Gamer gamer = new Gamer();
-            gamer.Name = "PLayer 1";
-            gamer.DayOfBirth = new DateTime(1983, 12, 5, 12, 23, 17);
+            Gamer gamer = new Gamer("PLayer 1", DateTime.Now);
 
             Gamer[] gamers = new Gamer[100];
 
             for (int i = 0; i < gamers.Length; i++)
             {
-                var g = new Gamer();
-                g.Name = $"Gamer {i + 1}";
+                var g = new Gamer($"Gamer {i + 1}", DateTime.Now.Subtract(TimeSpan.FromDays(365 * (i + 18))));
                 gamers[i] = g;
+                g.SayYourName();
             }
+            gamer.SayYourName();
+            //gamer.SetName("Лузер");
+            //Console.WriteLine($"Имя нашего игрока теперь: {gamer.GetName()}");
+
+            gamer.Name = "123";
+            Console.WriteLine($"Имя нашего игрока теперь: {gamer.Name}");
 
             Console.ReadLine();
         }
-    }
-
-
-    class Gamer
-    {
-        public string Name;
-        public DateTime DayOfBirth;
     }
 
 }
