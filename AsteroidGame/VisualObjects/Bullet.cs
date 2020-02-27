@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AsteroidGame.VisualObjects.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AsteroidGame.VisualObjects
 {
-    class Bullet : VisualObject
+    class Bullet : CollisionObject
     {
         private const int _BulletSizeX = 20;
         private const int _BulletSizeY = 5;
@@ -20,8 +21,9 @@ namespace AsteroidGame.VisualObjects
 
         public override void Draw(Graphics g)
         {
-            g.FillEllipse(Brushes.Red, new Rectangle(_Position, _Size));
-            g.DrawEllipse(Pens.White, new Rectangle(_Position, _Size));
+            var rect = Rect;
+            g.FillEllipse(Brushes.Red, rect);
+            g.DrawEllipse(Pens.White, rect);
             //g.FillEllipse(Brushes.Red,_Position.X, _Position.Y, _Size.Width, _Size.Height);
             //g.DrawEllipse(Pens.White,_Position.X, _Position.Y, _Size.Width, _Size.Height);
         }
