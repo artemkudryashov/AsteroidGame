@@ -16,6 +16,11 @@ namespace AsteroidGame.VisualObjects
 
         }
 
+        public bool CheckCollision(ICollision Obj)
+        {
+            throw new NotImplementedException();
+        }
+
         public override void Draw(Graphics g)
         {
             throw new NotImplementedException();
