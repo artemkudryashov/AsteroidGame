@@ -19,6 +19,7 @@ namespace AsteroidGame
         private static BufferedGraphicsContext __Context;
         private static BufferedGraphics __Buffer;
         private static VisualObject[] __GameObjects;
+        private static Bullet __Bullet;
 
         public static int Width { get; set; }
         public static int Height { get; set; }
@@ -85,25 +86,9 @@ namespace AsteroidGame
             }
 
 
-            //__GameObjects = new VisualObject[30];
-            //for (int i = 0; i < __GameObjects.Length /2 ; i++)
-            //{
-            //    __GameObjects[i] = new VisualObject(
-            //        new Point(600,i*20),
-            //        new Point(15-i,20-i),
-            //        new Size(20,20));
-            //}
-
-            //for (int i = __GameObjects.Length / 2; i < __GameObjects.Length ; i++)
-            //{
-            //    __GameObjects[i] = new Star(
-            //        new Point(600,i*20),
-            //        new Point(-i,0),
-            //        20);
-            //}
-            //var image = Properties.Resources.Asteroid;
-            //var image_object = new ImageObject(new Point(4,7), new Point(-4,6), new Size(20,20), image);
             __GameObjects = game_objects.ToArray();
+
+            __Bullet = new Bullet(200);
         }
 
         public static void Draw()
@@ -120,6 +105,8 @@ namespace AsteroidGame
                 __Buffer.Render();
             }
 
+            __Bullet.Draw(g);
+
             __Buffer.Render();
         }
 
@@ -129,6 +116,9 @@ namespace AsteroidGame
             {
                 item.Update();
             }
+            __Bullet.Update();
+            if (__Bullet.Position.X > Width)
+                __Bullet = new Bullet(300);
         }
 
     }
