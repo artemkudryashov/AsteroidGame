@@ -1,6 +1,7 @@
-﻿namespace TestConsole.Loggers
+﻿
+namespace TestConsole.Loggers
 {
-    public abstract class Logger
+    public abstract class Logger : ILogger
     {
         public abstract void Log(string Message);
 
@@ -20,4 +21,5 @@
         }
     }
 
+    
 }
